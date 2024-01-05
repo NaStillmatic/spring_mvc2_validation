@@ -154,6 +154,8 @@ public class ValidationItemControllerV2 {
         // 검증로직
         if (!StringUtils.hasText(item.getItemName())) {
             bindingResult.rejectValue("itemName", "required");
+
+//            new String[]{"required.item.name", "required"}
         }
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
             bindingResult.rejectValue("price", "range", new Object[]{1000000, 1000}, null);
