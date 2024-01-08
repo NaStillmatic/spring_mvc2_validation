@@ -153,12 +153,11 @@ public class ValidationItemControllerV2 {
         log.info("target={}", bindingResult.getTarget());
 
         // 검증로직
-        ValidationUtils.rejectIfEmptyOrWhitespace(bindingResult, "item", "required" );
+        ValidationUtils.rejectIfEmptyOrWhitespace(bindingResult, "itemName", "required" );
 
-        if (!StringUtils.hasText(item.getItemName())) {
-            bindingResult.rejectValue("itemName", "required");
-
-        }
+//        if (!StringUtils.hasText(item.getItemName())) {
+//            bindingResult.rejectValue("itemName", "required");
+//        }
 
         if (item.getPrice() == null || item.getPrice() < 1000 || item.getPrice() > 1000000) {
             bindingResult.rejectValue("price", "range", new Object[]{1000000, 1000}, null);
